@@ -9,7 +9,7 @@ The code is such that enables easy parametrization and consequently easy code ge
 The simulation is performed in MATLAB/Simulink. Simulink Simscape Multibody Add-On libraries are required and MATLAB version 2020a or newer.
 
 # Usage
-Make the main folder as a working folder and run 'initializeSimulationGP.m' for the simulation initialization. Afterwards, run 'SimForcesGP2020a.slx' or 'SimForces2022a.slx'.
+Make the main folder as a working folder and run 'initializeSimulationGP.m' for the simulation initialization. Afterwards, run 'SimForces2020a.slx' or 'SimForces2022a.slx'.
 
 # Licence
 See LICENSE.txt for licencing information.
