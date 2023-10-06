@@ -8,7 +8,7 @@
 
 % Simulation initialization file
 
-%%
+%%gravity
 
 clear
 clc
@@ -31,3 +31,5 @@ D22F = [0;0;0;0;0;0];
 Bc1_V = [0;0;0;0;0;0];
 % gravity vector
 gravity.Wg = [0; 9.8066; 0];
+
+%ry = py.test.send_string()
