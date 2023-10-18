@@ -10,6 +10,10 @@
 
 %%gravity
 
+%theta1, amp: cmdMotion.theta1A, bias: initVals.theta10, freq: cmdMotion.theta1f
+%theta2: amp: cmdMotion.theta2A, bias: initVals.theta20, freq:
+%cmdMotion.theta2f
+
 clear
 clc
 close all
