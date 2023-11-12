@@ -58,7 +58,7 @@ function simulationOutput = plotData(simulationOutput, i);
       squeeze(simulationOutput.(strcat('boom_', field)).signals.values);
   end
 
-  for field = string({'theta1', 'theta2'})
+  for field = string({'theta1', 'theta2', 'xt2'})
     data.(field) = squeeze(simulationOutput.(field).Data);
   end
 
