@@ -1,5 +1,7 @@
 run("initializeSimulationGP.m");
 
+enabled_joints = [true true false];
+
 model = "SimForces2022a";
 load_system(model);
 
@@ -15,17 +17,28 @@ for i = 1:1000
 
   for blockIndex = 1 : 3
 
-    set_param(blockPaths{blockIndex}, "Amplitude", ...
-              num2str(-1 + 2 * rand));
+    if enabled_joints(blockIndex) == true
 
-    set_param(blockPaths{blockIndex}, "Frequency", ...
-              num2str(0.1 * rand));
+      set_param(blockPaths{blockIndex}, "Amplitude", ...
+                num2str(-1 + 2 * rand));
 
-    set_param(blockPaths{blockIndex}, "Phase", ...
-              num2str(-pi + (2 * pi) * rand));
+      set_param(blockPaths{blockIndex}, "Frequency", ...
+                num2str(0.1 * rand));
 
-    set_param(blockPaths{blockIndex}, "Bias", ...
-              num2str(0));
+      set_param(blockPaths{blockIndex}, "Phase", ...
+                num2str(-pi + (2 * pi) * rand));
+
+      set_param(blockPaths{blockIndex}, "Bias", ...
+                num2str(0));
+
+    else
+
+      set_param(blockPaths{blockIndex}, "Amplitude", num2str(0));
+      set_param(blockPaths{blockIndex}, "Frequency", num2str(0));
+      set_param(blockPaths{blockIndex}, "Phase", num2str(0));
+      set_param(blockPaths{blockIndex}, "Bias", num2str(0));
+
+    end
 
   end
 
@@ -41,7 +54,7 @@ end
 
 function simulationOutput = plotData(simulationOutput, i);
 
-  % disp(simulationOutput.ErrorMessage);
+  disp(simulationOutput.ErrorMessage);
   disp(simulationOutput);
 
   data = struct();
