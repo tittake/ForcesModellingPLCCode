@@ -1,4 +1,5 @@
 run("initializeSimulationGP.m");
+
 model = "SimForces2022a";
 load_system(model);
 
@@ -18,7 +19,7 @@ for i = 1:1000
               num2str(-1 + 2 * rand));
 
     set_param(blockPaths{blockIndex}, "Frequency", ...
-              num2str(0 + 1 * rand));
+              num2str(0.1 * rand));
 
     set_param(blockPaths{blockIndex}, "Phase", ...
               num2str(-pi + (2 * pi) * rand));
@@ -40,6 +41,7 @@ end
 
 function simulationOutput = plotData(simulationOutput, i);
 
+  % disp(simulationOutput.ErrorMessage);
   disp(simulationOutput);
 
   data = struct();
@@ -58,8 +60,9 @@ function simulationOutput = plotData(simulationOutput, i);
       squeeze(simulationOutput.(strcat('boom_', field)).signals.values);
   end
 
-  for field = string({'theta1', 'theta2', 'xt2'})
-    data.(field) = squeeze(simulationOutput.(field).Data);
+  for field = string({'theta1', 'theta2', 'xt2' ...
+                      'theta1dot', 'theta2dot', 'xt2dot'})
+    data.(field) = squeeze(simulationOutput.(field).signals.values);
   end
 
   for field = string({'fc1', 'fc2', 'fct2'})
@@ -85,6 +88,8 @@ function simulationOutput = plotData(simulationOutput, i);
   table = struct2table(data);
 
   if ~exist('trajectories') mkdir('trajectories'); end
+
+  disp(num2str(i));
 
   writetable(table, strcat("trajectories/trajectory", num2str(i), ".csv"));
 
