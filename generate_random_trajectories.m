@@ -54,7 +54,7 @@ end
 
 function simulationOutput = plotData(simulationOutput, i);
 
-  disp(simulationOutput.ErrorMessage);
+  % disp(simulationOutput.ErrorMessage);
   disp(simulationOutput);
 
   data = struct();
