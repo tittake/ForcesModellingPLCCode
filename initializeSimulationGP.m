@@ -8,7 +8,11 @@
 
 % Simulation initialization file
 
-%%
+%%gravity
+
+%theta1, amp: cmdMotion.theta1A, bias: initVals.theta10, freq: cmdMotion.theta1f
+%theta2: amp: cmdMotion.theta2A, bias: initVals.theta20, freq:
+%cmdMotion.theta2f
 
 clear
 clc
@@ -31,3 +35,5 @@ D22F = [0;0;0;0;0;0];
 Bc1_V = [0;0;0;0;0;0];
 % gravity vector
 gravity.Wg = [0; 9.8066; 0];
+
+%ry = py.test.send_string()
