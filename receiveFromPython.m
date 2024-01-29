@@ -2,6 +2,8 @@ import java.net.ServerSocket
 import java.net.Socket
 import java.io.*
 
+initializeSimulationGP
+
 if ~bdIsLoaded('SimForces2022a')
     open_system('SimForces2022a');
 end
